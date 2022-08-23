@@ -7,12 +7,15 @@ Test Case 01 - Check Stopped Services
     [Documentation]    This test verifies if the services were correctly stopped
     [Tags]             services    stopped 
     Given there is a new application version
-    When Request to update application
-    Then The Service must be stopped
+    When request to update application
+    Then the service must be stopped
 
-# Test Case 02 - Check Running Services
-#     [Documentation]    This test verifies if the services were correctly stopped
-#     [Tags]             services 
+Test Case 02 - Check Running Services
+    [Documentation]    This test verifies if the services were correctly stopped
+    [Tags]             services 
+    Given there is a new application version
+    When the agent updater finishs the installation
+    Then the Service must be started
 
 Test Case 03 - Existing Files
     [Documentation]    This test verifies if the files were correct saved in its path
