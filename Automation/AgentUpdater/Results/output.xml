@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.10.6 on win32)" generated="20220822 16:49:26.892" rpa="false" schemaversion="3">
+<suite id="s1" name="TestCases" source="C:\Automation\AgentUpdater\TestCases">
+<suite id="s1-s1" name="agentUpdaterTests" source="C:\Automation\AgentUpdater\TestCases\agentUpdaterTests.robot">
+<test id="s1-s1-t1" name="Test Case 01 - Check Stopped Services" line="10">
+<kw name="Given there is a new application version" library="agentUpdaterResources">
+<kw name="Directory Should Exist" library="OperatingSystem">
+<arg>path=${path}</arg>
+<doc>Fails unless the given path points to an existing directory.</doc>
+<msg timestamp="20220822 16:49:27.043" level="INFO" html="true">Directory '&lt;a href="file://C:\FakeProject\Install"&gt;C:\FakeProject\Install&lt;/a&gt;' exists.</msg>
+<status status="PASS" starttime="20220822 16:49:27.042" endtime="20220822 16:49:27.043"/>
+</kw>
+<status status="PASS" starttime="20220822 16:49:27.040" endtime="20220822 16:49:27.044"/>
+</kw>
+<kw name="When Request to update application" library="agentUpdaterResources">
+<kw name="Log To Console" library="BuiltIn">
+<arg>New Version of Application</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220822 16:49:27.046" endtime="20220822 16:49:27.048"/>
+</kw>
+<status status="PASS" starttime="20220822 16:49:27.045" endtime="20220822 16:49:27.048"/>
+</kw>
+<kw name="Then The Service must be stopped" library="agentUpdaterResources">
+<kw name="Run And Return Rc And Output" library="OperatingSystem">
+<var>${rc_code}</var>
+<var>${output}</var>
+<arg>sc query ${stopped_service} | findstr /i STOPPED</arg>
+<doc>Runs the given command in the system and returns the RC and output.</doc>
+<msg timestamp="20220822 16:49:27.095" level="INFO">Running command 'sc query AppMgmt | findstr /i STOPPED 2&gt;&amp;1'.</msg>
+<msg timestamp="20220822 16:49:27.354" level="INFO">${rc_code} = 0</msg>
+<msg timestamp="20220822 16:49:27.354" level="INFO">${output} =         STATE              : 1  STOPPED </msg>
+<status status="PASS" starttime="20220822 16:49:27.049" endtime="20220822 16:49:27.354"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${rc_code}' != '0'</arg>
+<arg>Fail</arg>
+<arg>Service is not stopped!</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20220822 16:49:27.354" endtime="20220822 16:49:27.355"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${output}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220822 16:49:27.355" endtime="20220822 16:49:27.356"/>
+</kw>
+<status status="PASS" starttime="20220822 16:49:27.049" endtime="20220822 16:49:27.356"/>
+</kw>
+<doc>This test verifies if the services were correctly stopped</doc>
+<tag>services</tag>
+<status status="PASS" starttime="20220822 16:49:27.036" endtime="20220822 16:49:27.356"/>
+</test>
+<test id="s1-s1-t2" name="Test Case 03 - Existing Files" line="23">
+<kw name="Given I'm in the application folder" library="agentUpdaterResources">
+<kw name="Directory Should Exist" library="OperatingSystem">
+<arg>path=${path}</arg>
+<doc>Fails unless the given path points to an existing directory.</doc>
+<msg timestamp="20220822 16:49:27.361" level="INFO" html="true">Directory '&lt;a href="file://C:\FakeProject\Install"&gt;C:\FakeProject\Install&lt;/a&gt;' exists.</msg>
+<status status="PASS" starttime="20220822 16:49:27.360" endtime="20220822 16:49:27.361"/>
+</kw>
+<status status="PASS" starttime="20220822 16:49:27.359" endtime="20220822 16:49:27.361"/>
+</kw>
+<kw name="When I search for the update file" library="agentUpdaterResources">
+<kw name="List Directory" library="OperatingSystem">
+<var>${result}</var>
+<arg>path=${path}</arg>
+<doc>Returns and logs items in a directory, optionally filtered with ``pattern``.</doc>
+<msg timestamp="20220822 16:49:27.363" level="INFO" html="true">Listing contents of directory '&lt;a href="file://C:\FakeProject\Install"&gt;C:\FakeProject\Install&lt;/a&gt;'.</msg>
+<msg timestamp="20220822 16:49:27.364" level="INFO">3 items:
+Backup
+teste.txt
+xyz.txt</msg>
+<msg timestamp="20220822 16:49:27.364" level="INFO">${result} = ['Backup', 'teste.txt', 'xyz.txt']</msg>
+<status status="PASS" starttime="20220822 16:49:27.362" endtime="20220822 16:49:27.364"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${result}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220822 16:49:27.364" endtime="20220822 16:49:27.365"/>
+</kw>
+<status status="PASS" starttime="20220822 16:49:27.362" endtime="20220822 16:49:27.365"/>
+</kw>
+<kw name="Then the file should exist" library="agentUpdaterResources">
+<kw name="File Should Exist" library="OperatingSystem">
+<arg>path=${path}/teste.txt</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<msg timestamp="20220822 16:49:27.368" level="INFO" html="true">File '&lt;a href="file://C:\FakeProject\Install\teste.txt"&gt;C:\FakeProject\Install\teste.txt&lt;/a&gt;' exists.</msg>
+<status status="PASS" starttime="20220822 16:49:27.366" endtime="20220822 16:49:27.368"/>
+</kw>
+<status status="PASS" starttime="20220822 16:49:27.366" endtime="20220822 16:49:27.368"/>
+</kw>
+<doc>This test verifies if the files were correct saved in its path</doc>
+<tag>files</tag>
+<status status="PASS" starttime="20220822 16:49:27.358" endtime="20220822 16:49:27.368"/>
+</test>
+<doc>This suite tests the files created after the update</doc>
+<status status="PASS" starttime="20220822 16:49:26.980" endtime="20220822 16:49:27.370"/>
+</suite>
+<status status="PASS" starttime="20220822 16:49:26.898" endtime="20220822 16:49:27.373"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">files</stat>
+<stat pass="1" fail="0" skip="0">services</stat>
+</tag>
+<suite>
+<stat pass="2" fail="0" skip="0" id="s1" name="TestCases">TestCases</stat>
+<stat pass="2" fail="0" skip="0" id="s1-s1" name="agentUpdaterTests">TestCases.agentUpdaterTests</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
