@@ -29,16 +29,18 @@ Given I'm in the application folder
     Directory Should Exist    path=${path}
 When I search for the update file
     ${result}    List Directory    path=${path}
+    # ${new_Result}    Convert To String    ${result}
     Log To Console    ${result}
-    Set Test Variable    ${result} 
+    # Set Suite Variable    ${new_Result}
+    Set Suite Variable    ${result}
 Then the file should exist
     File Should Exist    path=${path}/teste.txt
 
 #-------------------Test Case 04 - Backup folder exists---------------------------#
 When I search for backup folder
-        ${result}    List Directories In Directory    path=${path}
+    ${result}    List Directories In Directory    path=${path}
     Log To Console    ${result}
-    Set Test Variable    ${result}
+
 Then the folder should exist
     Directory Should Exist    path=${bkp_path}    
 
@@ -49,11 +51,15 @@ When I check if the backup folder is empty
     Directory Should Not Be Empty     path=${bkp_path}
 Then the folder must not be empty
     ${result2}    List Directory     path=${bkp_path}
+    # ${new_Result2}     Convert To String    ${result2}
     Log To Console    ${result2}
-    Set Test Variable    ${result2}
+    # Set Suite Variable    ${new_Result2}
+     Set Suite Variable    ${result2}
 
 #-------------------Test Case 06 - Backup folder content validation---------------------------#
 When I compare the backup folder with the previous archive folder
-    Should Be Equal            ${result} = ${result2}
+    ${final_result}    Should Be Equal      ${result}     ${result2}
+    ${compare_list}        Create List    ${result}     ${result2}
+    Set Test Variable    ${compare_list}
 Then Both folders must have the same content
-    Log Variables        ${result2}
+    Log To Console       ${compare_list}

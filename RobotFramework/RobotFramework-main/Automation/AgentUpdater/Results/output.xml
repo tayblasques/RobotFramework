@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 5.0.1 (Python 3.10.6 on win32)" generated="20220824 16:33:12.292" rpa="false" schemaversion="3">
-<suite id="s1" name="agentUpdaterTests" source="C:\Users\caio.matos\Downloads\RobotFramework-main\RobotFramework-main\Automation\AgentUpdater\TestCases\agentUpdaterTests.robot">
+<robot generator="Robot 5.0.1 (Python 3.10.6 on win32)" generated="20220825 17:33:31.398" rpa="false" schemaversion="3">
+<suite id="s1" name="agentUpdaterTests" source="C:\Git\RobotFramework\RobotFramework\RobotFramework-main\Automation\AgentUpdater\TestCases\agentUpdaterTests.robot">
 <test id="s1-t1" name="Test Case 01 - Check Stopped Services" line="6">
 <kw name="Given there is a new application version" library="agentUpdaterResources">
 <kw name="Directory Should Exist" library="OperatingSystem">
 <arg>path=${path}</arg>
 <doc>Fails unless the given path points to an existing directory.</doc>
-<msg timestamp="20220824 16:33:12.346" level="INFO" html="true">Directory '&lt;a href="file://C:\FakeProject\Install"&gt;C:\FakeProject\Install&lt;/a&gt;' exists.</msg>
-<status status="PASS" starttime="20220824 16:33:12.345" endtime="20220824 16:33:12.346"/>
+<msg timestamp="20220825 17:33:31.493" level="INFO" html="true">Directory '&lt;a href="file://C:\FakeProject\Install"&gt;C:\FakeProject\Install&lt;/a&gt;' exists.</msg>
+<status status="PASS" starttime="20220825 17:33:31.491" endtime="20220825 17:33:31.493"/>
 </kw>
-<status status="PASS" starttime="20220824 16:33:12.345" endtime="20220824 16:33:12.346"/>
+<status status="PASS" starttime="20220825 17:33:31.491" endtime="20220825 17:33:31.493"/>
 </kw>
 <kw name="When request to update application" library="agentUpdaterResources">
 <kw name="Log To Console" library="BuiltIn">
 <arg>New Version of Application</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20220824 16:33:12.347" endtime="20220824 16:33:12.347"/>
+<status status="PASS" starttime="20220825 17:33:31.494" endtime="20220825 17:33:31.495"/>
 </kw>
-<status status="PASS" starttime="20220824 16:33:12.347" endtime="20220824 16:33:12.347"/>
+<status status="PASS" starttime="20220825 17:33:31.494" endtime="20220825 17:33:31.496"/>
 </kw>
 <kw name="Then the service must be stopped" library="agentUpdaterResources">
 <kw name="Run And Return Rc And Output" library="OperatingSystem">
@@ -25,47 +25,47 @@
 <var>${output}</var>
 <arg>sc query ${stopped_service} | findstr /i STOPPED</arg>
 <doc>Runs the given command in the system and returns the RC and output.</doc>
-<msg timestamp="20220824 16:33:12.367" level="INFO">Running command 'sc query AppMgmt | findstr /i STOPPED 2&gt;&amp;1'.</msg>
-<msg timestamp="20220824 16:33:12.459" level="INFO">${rc_code} = 0</msg>
-<msg timestamp="20220824 16:33:12.459" level="INFO">${output} =         STATE              : 1  STOPPED </msg>
-<status status="PASS" starttime="20220824 16:33:12.349" endtime="20220824 16:33:12.459"/>
+<msg timestamp="20220825 17:33:31.528" level="INFO">Running command 'sc query AppMgmt | findstr /i STOPPED 2&gt;&amp;1'.</msg>
+<msg timestamp="20220825 17:33:31.719" level="INFO">${rc_code} = 0</msg>
+<msg timestamp="20220825 17:33:31.719" level="INFO">${output} =         STATE              : 1  STOPPED </msg>
+<status status="PASS" starttime="20220825 17:33:31.497" endtime="20220825 17:33:31.719"/>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
 <arg>'${rc_code}' != '0'</arg>
 <arg>Fail</arg>
 <arg>Service is not stopped!</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" starttime="20220824 16:33:12.459" endtime="20220824 16:33:12.460"/>
+<status status="PASS" starttime="20220825 17:33:31.719" endtime="20220825 17:33:31.719"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>${output}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20220824 16:33:12.460" endtime="20220824 16:33:12.460"/>
+<status status="PASS" starttime="20220825 17:33:31.720" endtime="20220825 17:33:31.721"/>
 </kw>
-<status status="PASS" starttime="20220824 16:33:12.348" endtime="20220824 16:33:12.460"/>
+<status status="PASS" starttime="20220825 17:33:31.496" endtime="20220825 17:33:31.722"/>
 </kw>
 <doc>This test verifies if the services were correctly stopped</doc>
 <tag>services</tag>
 <tag>stopped</tag>
-<status status="PASS" starttime="20220824 16:33:12.344" endtime="20220824 16:33:12.462"/>
+<status status="PASS" starttime="20220825 17:33:31.489" endtime="20220825 17:33:31.722"/>
 </test>
 <test id="s1-t2" name="Test Case 02 - Check Running Services" line="13">
 <kw name="Given there is a new application version" library="agentUpdaterResources">
 <kw name="Directory Should Exist" library="OperatingSystem">
 <arg>path=${path}</arg>
 <doc>Fails unless the given path points to an existing directory.</doc>
-<msg timestamp="20220824 16:33:12.466" level="INFO" html="true">Directory '&lt;a href="file://C:\FakeProject\Install"&gt;C:\FakeProject\Install&lt;/a&gt;' exists.</msg>
-<status status="PASS" starttime="20220824 16:33:12.465" endtime="20220824 16:33:12.466"/>
+<msg timestamp="20220825 17:33:31.726" level="INFO" html="true">Directory '&lt;a href="file://C:\FakeProject\Install"&gt;C:\FakeProject\Install&lt;/a&gt;' exists.</msg>
+<status status="PASS" starttime="20220825 17:33:31.725" endtime="20220825 17:33:31.726"/>
 </kw>
-<status status="PASS" starttime="20220824 16:33:12.465" endtime="20220824 16:33:12.466"/>
+<status status="PASS" starttime="20220825 17:33:31.725" endtime="20220825 17:33:31.726"/>
 </kw>
 <kw name="When the agent updater finishs the installation" library="agentUpdaterResources">
 <kw name="Log To Console" library="BuiltIn">
 <arg>Application updated!</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20220824 16:33:12.467" endtime="20220824 16:33:12.467"/>
+<status status="PASS" starttime="20220825 17:33:31.727" endtime="20220825 17:33:31.727"/>
 </kw>
-<status status="PASS" starttime="20220824 16:33:12.466" endtime="20220824 16:33:12.467"/>
+<status status="PASS" starttime="20220825 17:33:31.726" endtime="20220825 17:33:31.727"/>
 </kw>
 <kw name="Then the Service must be started" library="agentUpdaterResources">
 <kw name="Run And Return Rc And Output" library="OperatingSystem">
@@ -73,213 +73,230 @@
 <var>${output}</var>
 <arg>sc query ${running_service} | findstr /i RUNNING</arg>
 <doc>Runs the given command in the system and returns the RC and output.</doc>
-<msg timestamp="20220824 16:33:12.481" level="INFO">Running command 'sc query Appinfo | findstr /i RUNNING 2&gt;&amp;1'.</msg>
-<msg timestamp="20220824 16:33:12.579" level="INFO">${rc_code} = 0</msg>
-<msg timestamp="20220824 16:33:12.579" level="INFO">${output} =         STATE              : 4  RUNNING </msg>
-<status status="PASS" starttime="20220824 16:33:12.468" endtime="20220824 16:33:12.579"/>
+<msg timestamp="20220825 17:33:31.750" level="INFO">Running command 'sc query Appinfo | findstr /i RUNNING 2&gt;&amp;1'.</msg>
+<msg timestamp="20220825 17:33:31.936" level="INFO">${rc_code} = 0</msg>
+<msg timestamp="20220825 17:33:31.937" level="INFO">${output} =         STATE              : 4  RUNNING </msg>
+<status status="PASS" starttime="20220825 17:33:31.728" endtime="20220825 17:33:31.937"/>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
 <arg>'${rc_code}' != '0'</arg>
 <arg>Fail</arg>
 <arg>Service is not running!</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" starttime="20220824 16:33:12.580" endtime="20220824 16:33:12.580"/>
+<status status="PASS" starttime="20220825 17:33:31.937" endtime="20220825 17:33:31.937"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>${output}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20220824 16:33:12.580" endtime="20220824 16:33:12.580"/>
+<status status="PASS" starttime="20220825 17:33:31.938" endtime="20220825 17:33:31.938"/>
 </kw>
-<status status="PASS" starttime="20220824 16:33:12.468" endtime="20220824 16:33:12.580"/>
+<status status="PASS" starttime="20220825 17:33:31.728" endtime="20220825 17:33:31.939"/>
 </kw>
 <doc>This test verifies if the services were correctly stopped</doc>
 <tag>services</tag>
-<status status="PASS" starttime="20220824 16:33:12.464" endtime="20220824 16:33:12.581"/>
+<status status="PASS" starttime="20220825 17:33:31.724" endtime="20220825 17:33:31.939"/>
 </test>
 <test id="s1-t3" name="Test Case 03 - Existing Files" line="20">
 <kw name="Given I'm in the application folder" library="agentUpdaterResources">
 <kw name="Directory Should Exist" library="OperatingSystem">
 <arg>path=${path}</arg>
 <doc>Fails unless the given path points to an existing directory.</doc>
-<msg timestamp="20220824 16:33:12.583" level="INFO" html="true">Directory '&lt;a href="file://C:\FakeProject\Install"&gt;C:\FakeProject\Install&lt;/a&gt;' exists.</msg>
-<status status="PASS" starttime="20220824 16:33:12.583" endtime="20220824 16:33:12.583"/>
+<msg timestamp="20220825 17:33:31.944" level="INFO" html="true">Directory '&lt;a href="file://C:\FakeProject\Install"&gt;C:\FakeProject\Install&lt;/a&gt;' exists.</msg>
+<status status="PASS" starttime="20220825 17:33:31.943" endtime="20220825 17:33:31.944"/>
 </kw>
-<status status="PASS" starttime="20220824 16:33:12.583" endtime="20220824 16:33:12.584"/>
+<status status="PASS" starttime="20220825 17:33:31.942" endtime="20220825 17:33:31.944"/>
 </kw>
 <kw name="When I search for the update file" library="agentUpdaterResources">
 <kw name="List Directory" library="OperatingSystem">
 <var>${result}</var>
 <arg>path=${path}</arg>
 <doc>Returns and logs items in a directory, optionally filtered with ``pattern``.</doc>
-<msg timestamp="20220824 16:33:12.584" level="INFO" html="true">Listing contents of directory '&lt;a href="file://C:\FakeProject\Install"&gt;C:\FakeProject\Install&lt;/a&gt;'.</msg>
-<msg timestamp="20220824 16:33:12.584" level="INFO">2 items:
+<msg timestamp="20220825 17:33:31.946" level="INFO" html="true">Listing contents of directory '&lt;a href="file://C:\FakeProject\Install"&gt;C:\FakeProject\Install&lt;/a&gt;'.</msg>
+<msg timestamp="20220825 17:33:31.946" level="INFO">3 items:
 Backup
-abc.txt</msg>
-<msg timestamp="20220824 16:33:12.585" level="INFO">${result} = ['Backup', 'abc.txt']</msg>
-<status status="PASS" starttime="20220824 16:33:12.584" endtime="20220824 16:33:12.585"/>
+teste.txt
+xyz.txt</msg>
+<msg timestamp="20220825 17:33:31.947" level="INFO">${result} = ['Backup', 'teste.txt', 'xyz.txt']</msg>
+<status status="PASS" starttime="20220825 17:33:31.945" endtime="20220825 17:33:31.947"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>${result}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20220824 16:33:12.585" endtime="20220824 16:33:12.585"/>
+<status status="PASS" starttime="20220825 17:33:31.947" endtime="20220825 17:33:31.948"/>
 </kw>
-<kw name="Set Test Variable" library="BuiltIn">
+<kw name="Set Suite Variable" library="BuiltIn">
 <arg>${result}</arg>
-<doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<msg timestamp="20220824 16:33:12.585" level="INFO">${result} = ['Backup', 'abc.txt']</msg>
-<status status="PASS" starttime="20220824 16:33:12.585" endtime="20220824 16:33:12.585"/>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20220825 17:33:31.949" level="INFO">${result} = ['Backup', 'teste.txt', 'xyz.txt']</msg>
+<status status="PASS" starttime="20220825 17:33:31.948" endtime="20220825 17:33:31.949"/>
 </kw>
-<status status="PASS" starttime="20220824 16:33:12.584" endtime="20220824 16:33:12.585"/>
+<status status="PASS" starttime="20220825 17:33:31.945" endtime="20220825 17:33:31.949"/>
 </kw>
 <kw name="Then the file should exist" library="agentUpdaterResources">
 <kw name="File Should Exist" library="OperatingSystem">
 <arg>path=${path}/teste.txt</arg>
 <doc>Fails unless the given ``path`` points to an existing file.</doc>
-<msg timestamp="20220824 16:33:12.587" level="FAIL">File 'C:\FakeProject\Install\teste.txt' does not exist.</msg>
-<status status="FAIL" starttime="20220824 16:33:12.586" endtime="20220824 16:33:12.587"/>
+<msg timestamp="20220825 17:33:31.951" level="INFO" html="true">File '&lt;a href="file://C:\FakeProject\Install\teste.txt"&gt;C:\FakeProject\Install\teste.txt&lt;/a&gt;' exists.</msg>
+<status status="PASS" starttime="20220825 17:33:31.950" endtime="20220825 17:33:31.951"/>
 </kw>
-<status status="FAIL" starttime="20220824 16:33:12.586" endtime="20220824 16:33:12.588"/>
+<status status="PASS" starttime="20220825 17:33:31.949" endtime="20220825 17:33:31.952"/>
 </kw>
 <doc>This test verifies if the files were correct saved in its path</doc>
 <tag>files</tag>
-<status status="FAIL" starttime="20220824 16:33:12.583" endtime="20220824 16:33:12.589">File 'C:\FakeProject\Install\teste.txt' does not exist.</status>
+<status status="PASS" starttime="20220825 17:33:31.941" endtime="20220825 17:33:31.952"/>
 </test>
 <test id="s1-t4" name="Test Case 04 - Check if Backup Folder exists" line="27">
 <kw name="Given I'm in the application folder" library="agentUpdaterResources">
 <kw name="Directory Should Exist" library="OperatingSystem">
 <arg>path=${path}</arg>
 <doc>Fails unless the given path points to an existing directory.</doc>
-<msg timestamp="20220824 16:33:12.591" level="INFO" html="true">Directory '&lt;a href="file://C:\FakeProject\Install"&gt;C:\FakeProject\Install&lt;/a&gt;' exists.</msg>
-<status status="PASS" starttime="20220824 16:33:12.591" endtime="20220824 16:33:12.591"/>
+<msg timestamp="20220825 17:33:31.957" level="INFO" html="true">Directory '&lt;a href="file://C:\FakeProject\Install"&gt;C:\FakeProject\Install&lt;/a&gt;' exists.</msg>
+<status status="PASS" starttime="20220825 17:33:31.956" endtime="20220825 17:33:31.957"/>
 </kw>
-<status status="PASS" starttime="20220824 16:33:12.591" endtime="20220824 16:33:12.591"/>
+<status status="PASS" starttime="20220825 17:33:31.955" endtime="20220825 17:33:31.957"/>
 </kw>
 <kw name="When I search for backup folder" library="agentUpdaterResources">
 <kw name="List Directories In Directory" library="OperatingSystem">
 <var>${result}</var>
 <arg>path=${path}</arg>
 <doc>Wrapper for `List Directory` that returns only directories.</doc>
-<msg timestamp="20220824 16:33:12.592" level="INFO" html="true">Listing contents of directory '&lt;a href="file://C:\FakeProject\Install"&gt;C:\FakeProject\Install&lt;/a&gt;'.</msg>
-<msg timestamp="20220824 16:33:12.593" level="INFO">1 directory:
+<msg timestamp="20220825 17:33:31.959" level="INFO" html="true">Listing contents of directory '&lt;a href="file://C:\FakeProject\Install"&gt;C:\FakeProject\Install&lt;/a&gt;'.</msg>
+<msg timestamp="20220825 17:33:31.960" level="INFO">1 directory:
 Backup</msg>
-<msg timestamp="20220824 16:33:12.593" level="INFO">${result} = ['Backup']</msg>
-<status status="PASS" starttime="20220824 16:33:12.592" endtime="20220824 16:33:12.593"/>
+<msg timestamp="20220825 17:33:31.960" level="INFO">${result} = ['Backup']</msg>
+<status status="PASS" starttime="20220825 17:33:31.959" endtime="20220825 17:33:31.960"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>${result}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20220824 16:33:12.593" endtime="20220824 16:33:12.593"/>
+<status status="PASS" starttime="20220825 17:33:31.961" endtime="20220825 17:33:31.961"/>
 </kw>
-<kw name="Set Test Variable" library="BuiltIn">
-<arg>${result}</arg>
-<doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<msg timestamp="20220824 16:33:12.593" level="INFO">${result} = ['Backup']</msg>
-<status status="PASS" starttime="20220824 16:33:12.593" endtime="20220824 16:33:12.593"/>
-</kw>
-<status status="PASS" starttime="20220824 16:33:12.592" endtime="20220824 16:33:12.593"/>
+<status status="PASS" starttime="20220825 17:33:31.958" endtime="20220825 17:33:31.962"/>
 </kw>
 <kw name="Then the folder should exist" library="agentUpdaterResources">
 <kw name="Directory Should Exist" library="OperatingSystem">
 <arg>path=${bkp_path}</arg>
 <doc>Fails unless the given path points to an existing directory.</doc>
-<msg timestamp="20220824 16:33:12.594" level="INFO" html="true">Directory '&lt;a href="file://C:\FakeProject\Install\Backup"&gt;C:\FakeProject\Install\Backup&lt;/a&gt;' exists.</msg>
-<status status="PASS" starttime="20220824 16:33:12.594" endtime="20220824 16:33:12.595"/>
+<msg timestamp="20220825 17:33:31.964" level="INFO" html="true">Directory '&lt;a href="file://C:\FakeProject\Install\Backup"&gt;C:\FakeProject\Install\Backup&lt;/a&gt;' exists.</msg>
+<status status="PASS" starttime="20220825 17:33:31.963" endtime="20220825 17:33:31.964"/>
 </kw>
-<status status="PASS" starttime="20220824 16:33:12.594" endtime="20220824 16:33:12.595"/>
+<status status="PASS" starttime="20220825 17:33:31.962" endtime="20220825 17:33:31.964"/>
 </kw>
 <doc>This test verifies if the backup folder exists</doc>
 <tag>files</tag>
-<status status="PASS" starttime="20220824 16:33:12.590" endtime="20220824 16:33:12.595"/>
+<status status="PASS" starttime="20220825 17:33:31.954" endtime="20220825 17:33:31.965"/>
 </test>
 <test id="s1-t5" name="Test Case 05 - Backup folder must not be empty" line="34">
 <kw name="Given I'm in the backup folder" library="agentUpdaterResources">
 <kw name="Directory Should Exist" library="OperatingSystem">
 <arg>path=${bkp_path}</arg>
 <doc>Fails unless the given path points to an existing directory.</doc>
-<msg timestamp="20220824 16:33:12.597" level="INFO" html="true">Directory '&lt;a href="file://C:\FakeProject\Install\Backup"&gt;C:\FakeProject\Install\Backup&lt;/a&gt;' exists.</msg>
-<status status="PASS" starttime="20220824 16:33:12.596" endtime="20220824 16:33:12.597"/>
+<msg timestamp="20220825 17:33:31.970" level="INFO" html="true">Directory '&lt;a href="file://C:\FakeProject\Install\Backup"&gt;C:\FakeProject\Install\Backup&lt;/a&gt;' exists.</msg>
+<status status="PASS" starttime="20220825 17:33:31.969" endtime="20220825 17:33:31.970"/>
 </kw>
-<status status="PASS" starttime="20220824 16:33:12.596" endtime="20220824 16:33:12.597"/>
+<status status="PASS" starttime="20220825 17:33:31.968" endtime="20220825 17:33:31.970"/>
 </kw>
 <kw name="When I check if the backup folder is empty" library="agentUpdaterResources">
 <kw name="Directory Should Not Be Empty" library="OperatingSystem">
 <arg>path=${bkp_path}</arg>
 <doc>Fails if the specified directory is empty.</doc>
-<msg timestamp="20220824 16:33:12.598" level="INFO" html="true">Listing contents of directory '&lt;a href="file://C:\FakeProject\Install\Backup"&gt;C:\FakeProject\Install\Backup&lt;/a&gt;'.</msg>
-<msg timestamp="20220824 16:33:12.598" level="INFO" html="true">Directory '&lt;a href="file://C:\FakeProject\Install\Backup"&gt;C:\FakeProject\Install\Backup&lt;/a&gt;' contains 2 items.</msg>
-<status status="PASS" starttime="20220824 16:33:12.598" endtime="20220824 16:33:12.598"/>
+<msg timestamp="20220825 17:33:31.972" level="INFO" html="true">Listing contents of directory '&lt;a href="file://C:\FakeProject\Install\Backup"&gt;C:\FakeProject\Install\Backup&lt;/a&gt;'.</msg>
+<msg timestamp="20220825 17:33:31.973" level="INFO" html="true">Directory '&lt;a href="file://C:\FakeProject\Install\Backup"&gt;C:\FakeProject\Install\Backup&lt;/a&gt;' contains 3 items.</msg>
+<status status="PASS" starttime="20220825 17:33:31.972" endtime="20220825 17:33:31.973"/>
 </kw>
-<status status="PASS" starttime="20220824 16:33:12.597" endtime="20220824 16:33:12.598"/>
+<status status="PASS" starttime="20220825 17:33:31.971" endtime="20220825 17:33:31.973"/>
 </kw>
 <kw name="Then the folder must not be empty" library="agentUpdaterResources">
 <kw name="List Directory" library="OperatingSystem">
 <var>${result2}</var>
 <arg>path=${bkp_path}</arg>
 <doc>Returns and logs items in a directory, optionally filtered with ``pattern``.</doc>
-<msg timestamp="20220824 16:33:12.599" level="INFO" html="true">Listing contents of directory '&lt;a href="file://C:\FakeProject\Install\Backup"&gt;C:\FakeProject\Install\Backup&lt;/a&gt;'.</msg>
-<msg timestamp="20220824 16:33:12.599" level="INFO">2 items:
+<msg timestamp="20220825 17:33:31.976" level="INFO" html="true">Listing contents of directory '&lt;a href="file://C:\FakeProject\Install\Backup"&gt;C:\FakeProject\Install\Backup&lt;/a&gt;'.</msg>
+<msg timestamp="20220825 17:33:31.977" level="INFO">3 items:
 Backup
-abc.txt</msg>
-<msg timestamp="20220824 16:33:12.599" level="INFO">${result2} = ['Backup', 'abc.txt']</msg>
-<status status="PASS" starttime="20220824 16:33:12.598" endtime="20220824 16:33:12.599"/>
+teste.txt
+xyz.txt</msg>
+<msg timestamp="20220825 17:33:31.977" level="INFO">${result2} = ['Backup', 'teste.txt', 'xyz.txt']</msg>
+<status status="PASS" starttime="20220825 17:33:31.975" endtime="20220825 17:33:31.977"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>${result2}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20220824 16:33:12.599" endtime="20220824 16:33:12.599"/>
+<status status="PASS" starttime="20220825 17:33:31.977" endtime="20220825 17:33:31.979"/>
 </kw>
-<kw name="Set Test Variable" library="BuiltIn">
+<kw name="Set Suite Variable" library="BuiltIn">
 <arg>${result2}</arg>
-<doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<msg timestamp="20220824 16:33:12.600" level="INFO">${result2} = ['Backup', 'abc.txt']</msg>
-<status status="PASS" starttime="20220824 16:33:12.600" endtime="20220824 16:33:12.600"/>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20220825 17:33:31.980" level="INFO">${result2} = ['Backup', 'teste.txt', 'xyz.txt']</msg>
+<status status="PASS" starttime="20220825 17:33:31.979" endtime="20220825 17:33:31.980"/>
 </kw>
-<status status="PASS" starttime="20220824 16:33:12.598" endtime="20220824 16:33:12.600"/>
+<status status="PASS" starttime="20220825 17:33:31.975" endtime="20220825 17:33:31.980"/>
 </kw>
 <doc>This test verifies the content of the backup folder</doc>
 <tag>files</tag>
-<status status="PASS" starttime="20220824 16:33:12.596" endtime="20220824 16:33:12.601"/>
+<status status="PASS" starttime="20220825 17:33:31.966" endtime="20220825 17:33:31.981"/>
 </test>
 <test id="s1-t6" name="Test Case 06 - Backup folder content validation" line="41">
 <kw name="Given I'm in the backup folder" library="agentUpdaterResources">
 <kw name="Directory Should Exist" library="OperatingSystem">
 <arg>path=${bkp_path}</arg>
 <doc>Fails unless the given path points to an existing directory.</doc>
-<msg timestamp="20220824 16:33:12.607" level="INFO" html="true">Directory '&lt;a href="file://C:\FakeProject\Install\Backup"&gt;C:\FakeProject\Install\Backup&lt;/a&gt;' exists.</msg>
-<status status="PASS" starttime="20220824 16:33:12.606" endtime="20220824 16:33:12.607"/>
+<msg timestamp="20220825 17:33:31.987" level="INFO" html="true">Directory '&lt;a href="file://C:\FakeProject\Install\Backup"&gt;C:\FakeProject\Install\Backup&lt;/a&gt;' exists.</msg>
+<status status="PASS" starttime="20220825 17:33:31.986" endtime="20220825 17:33:31.987"/>
 </kw>
-<status status="PASS" starttime="20220824 16:33:12.606" endtime="20220824 16:33:12.607"/>
+<status status="PASS" starttime="20220825 17:33:31.985" endtime="20220825 17:33:31.987"/>
 </kw>
 <kw name="When I compare the backup folder with the previous archive folder" library="agentUpdaterResources">
 <kw name="Should Be Equal" library="BuiltIn">
-<arg>${result} = ${result2}</arg>
+<var>${final_result}</var>
+<arg>${result}</arg>
+<arg>${result2}</arg>
 <doc>Fails if the given objects are unequal.</doc>
-<msg timestamp="20220824 16:33:12.609" level="FAIL">Variable '${result}' not found.</msg>
-<status status="FAIL" starttime="20220824 16:33:12.607" endtime="20220824 16:33:12.609"/>
+<msg timestamp="20220825 17:33:31.989" level="INFO">${final_result} = None</msg>
+<status status="PASS" starttime="20220825 17:33:31.988" endtime="20220825 17:33:31.989"/>
 </kw>
-<status status="FAIL" starttime="20220824 16:33:12.607" endtime="20220824 16:33:12.609"/>
+<kw name="Create List" library="BuiltIn">
+<var>${compare_list}</var>
+<arg>${result}</arg>
+<arg>${result2}</arg>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20220825 17:33:32.008" level="INFO">${compare_list} = [['Backup', 'teste.txt', 'xyz.txt'], ['Backup', 'teste.txt', 'xyz.txt']]</msg>
+<status status="PASS" starttime="20220825 17:33:31.990" endtime="20220825 17:33:32.008"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${compare_list}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20220825 17:33:32.009" level="INFO">${compare_list} = [['Backup', 'teste.txt', 'xyz.txt'], ['Backup', 'teste.txt', 'xyz.txt']]</msg>
+<status status="PASS" starttime="20220825 17:33:32.008" endtime="20220825 17:33:32.009"/>
+</kw>
+<status status="PASS" starttime="20220825 17:33:31.988" endtime="20220825 17:33:32.009"/>
 </kw>
 <kw name="Then Both folders must have the same content" library="agentUpdaterResources">
-<status status="NOT RUN" starttime="20220824 16:33:12.610" endtime="20220824 16:33:12.610"/>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${compare_list}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220825 17:33:32.033" endtime="20220825 17:33:32.044"/>
+</kw>
+<status status="PASS" starttime="20220825 17:33:32.032" endtime="20220825 17:33:32.045"/>
 </kw>
 <doc>This test verifies the content of the backup folder</doc>
 <tag>files</tag>
-<status status="FAIL" starttime="20220824 16:33:12.603" endtime="20220824 16:33:12.610">Variable '${result}' not found.</status>
+<status status="PASS" starttime="20220825 17:33:31.983" endtime="20220825 17:33:32.083"/>
 </test>
 <doc>This suite tests the agent updater features</doc>
-<status status="FAIL" starttime="20220824 16:33:12.296" endtime="20220824 16:33:12.613"/>
+<status status="PASS" starttime="20220825 17:33:31.404" endtime="20220825 17:33:32.100"/>
 </suite>
 <statistics>
 <total>
-<stat pass="4" fail="2" skip="0">All Tests</stat>
+<stat pass="6" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="2" fail="2" skip="0">files</stat>
+<stat pass="4" fail="0" skip="0">files</stat>
 <stat pass="2" fail="0" skip="0">services</stat>
 <stat pass="1" fail="0" skip="0">stopped</stat>
 </tag>
 <suite>
-<stat pass="4" fail="2" skip="0" id="s1" name="agentUpdaterTests">agentUpdaterTests</stat>
+<stat pass="6" fail="0" skip="0" id="s1" name="agentUpdaterTests">agentUpdaterTests</stat>
 </suite>
 </statistics>
 <errors>
