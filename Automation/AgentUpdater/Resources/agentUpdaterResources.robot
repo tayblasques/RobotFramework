@@ -29,7 +29,7 @@ Given I'm in the application folder
     Directory Should Exist    path=${path}
 When I search for the update file
     ${result}    List Directory    path=${path}
-    Log To Console    ${result} 
+    Log To Console    ${result}
 Then the file should exist
     File Should Exist    path=${path}/teste.txt
 
