@@ -23,3 +23,24 @@ Test Case 03 - Existing Files
     Given I'm in the application folder
     When I search for the update file 
     Then the file should exist
+
+Test Case 04 - Check if Backup Folder exists
+    [Documentation]    This test verifies if the backup folder exists
+    [Tags]             files
+    Given I'm in the application folder
+    When I search for backup folder
+    Then the folder should exist
+
+Test Case 05 - Backup folder must not be empty
+    [Documentation]    This test verifies the content of the backup folder
+    [Tags]             files
+    Given I'm in the backup folder
+    When I check if the backup folder is empty
+    Then the folder must not be empty
+
+Test Case 06 - Backup folder content validation
+    [Documentation]    This test verifies the content of the backup folder
+    [Tags]             files
+    Given I'm in the backup folder
+    When I compare the backup folder with the previous archive folder
+    Then Both folders must have the same content
