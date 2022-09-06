@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.10.6 on win32)" generated="20220902 16:40:26.916" rpa="false" schemaversion="3">
+<suite id="s1" name="agentUpdaterTests" source="c:\Git\RobotFramework\Automation\AgentUpdater\TestCases\agentUpdaterTests.robot">
+<test id="s1-t1" name="Test Case 08 - Log file validation" line="48">
+<kw name="Given I'm in the log folder" library="agentUpdaterResources">
+<kw name="Directory Should Exist" library="OperatingSystem">
+<arg>path=${log_path}</arg>
+<doc>Fails unless the given path points to an existing directory.</doc>
+<msg timestamp="20220902 16:40:26.983" level="INFO" html="true">Directory '&lt;a href="file://C:\FakeProject\Install\Logs"&gt;C:\FakeProject\Install\Logs&lt;/a&gt;' exists.</msg>
+<status status="PASS" starttime="20220902 16:40:26.979" endtime="20220902 16:40:27.006"/>
+</kw>
+<status status="PASS" starttime="20220902 16:40:26.979" endtime="20220902 16:40:27.007"/>
+</kw>
+<kw name="When I search for content" library="agentUpdaterResources">
+<kw name="Get File" library="OperatingSystem">
+<var>${TextFileContent}</var>
+<arg>path=${log_archive}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<msg timestamp="20220902 16:40:27.009" level="INFO" html="true">Getting file '&lt;a href="file://C:\FakeProject\Install\Logs\log.txt"&gt;C:\FakeProject\Install\Logs\log.txt&lt;/a&gt;'.</msg>
+<msg timestamp="20220902 16:40:27.012" level="INFO">${TextFileContent} = log 
+log 
+log 
+log</msg>
+<status status="PASS" starttime="20220902 16:40:27.008" endtime="20220902 16:40:27.012"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${TextFileContent}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20220902 16:40:27.012" level="INFO">${TextFileContent} = log 
+log 
+log 
+log</msg>
+<status status="PASS" starttime="20220902 16:40:27.012" endtime="20220902 16:40:27.012"/>
+</kw>
+<status status="PASS" starttime="20220902 16:40:27.007" endtime="20220902 16:40:27.013"/>
+</kw>
+<kw name="Then the content must be there" library="agentUpdaterResources">
+<kw name="Log To Console" library="BuiltIn">
+<arg>${\n}</arg>
+<arg>${TextFileContent}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220902 16:40:27.018" endtime="20220902 16:40:27.019"/>
+</kw>
+<status status="PASS" starttime="20220902 16:40:27.014" endtime="20220902 16:40:27.020"/>
+</kw>
+<doc>This test verifies the content of the log file</doc>
+<tag>log</tag>
+<status status="PASS" starttime="20220902 16:40:26.978" endtime="20220902 16:40:27.020"/>
+</test>
+<doc>This suite tests the agent updater features</doc>
+<status status="PASS" starttime="20220902 16:40:26.927" endtime="20220902 16:40:27.022"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">log</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="agentUpdaterTests">agentUpdaterTests</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

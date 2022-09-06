@@ -44,3 +44,10 @@ Test Case 06 - Backup folder content validation
     Given I'm in the backup folder
     When I compare the backup folder with the previous archive folder
     Then Both folders must have the same content
+
+Test Case 08 - Log file validation
+    [Documentation]    This test verifies the content of the log file
+    [Tags]             log
+    Given I'm in the log folder
+    When I search for content  
+    Then the content must be there

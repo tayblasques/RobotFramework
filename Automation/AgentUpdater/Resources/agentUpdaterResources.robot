@@ -6,6 +6,8 @@ ${path}                C:/FakeProject/Install
 ${bkp_path}            C:/FakeProject/Install/Backup
 ${stopped_service}     AppMgmt
 ${running_service}     Appinfo
+${log_archive}         C:/FakeProject/Install/Logs/log.txt
+${log_path}            C:/FakeProject/Install/Logs
 
 *** Keywords ***
 #-------------------Test Case 01 - Check Stopped Services-------------------#
@@ -59,3 +61,17 @@ When I compare the backup folder with the previous archive folder
     Set Test Variable    ${compare_list}
 Then Both folders must have the same content
     Log To Console       ${compare_list}
+
+#-------------Test Case 08 - Log file validation-----------------------#
+
+Given I'm in the log folder
+    Directory Should Exist    path=${log_path}
+
+When I search for content
+    ${TextFileContent}     Get File     path=${log_archive}
+    Set Test Variable    ${TextFileContent}
+
+Then the content must be there
+    Log To Console    ${\n}
+    Log to Console    ${TextFileContent}
+    Log To Console    ${\n}
